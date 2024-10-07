@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr2m1fejvimmo"]
+
+[ext_resource type="Script" path="res://Main.gd" id="1"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="GridContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="OpenReadQRCode" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Read QR Code"
+
+[node name="OpenWebSearch" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Web search"
+
+[node name="OpenDialPhoneNumber" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Dial a phone number"
+
+[node name="OpenGPSPosition" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Show GPS position"
+
+[connection signal="pressed" from="GridContainer/OpenReadQRCode" to="." method="_on_OpenReadQRCode_pressed"]
+[connection signal="pressed" from="GridContainer/OpenWebSearch" to="." method="_on_OpenWebSearch_pressed"]
+[connection signal="pressed" from="GridContainer/OpenDialPhoneNumber" to="." method="_on_OpenDialPhoneNumber_pressed"]
+[connection signal="pressed" from="GridContainer/OpenGPSPosition" to="." method="_on_OpenGPSPosition_pressed"]
