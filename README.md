@@ -1,3 +1,7 @@
+修改了原项目，使得其与Godot 4.3兼容了
+==================================
+
+
 GodotUniversalIntentPlugin for Godot 3.2.2 - 4.1
 ====================================
 ____________________________________
@@ -103,9 +107,11 @@ Returns a Dictionary with some of the intent data
 ***error***  
 Returns any error as string
 
+
+
 Example code
 ============
-Open coordinates in google map:
+Open coordinates in google map，这里的代码也修改成了可以在4.3不报错的版本:
 
 ```python
 
@@ -123,8 +129,8 @@ func _ready():
 		print("Could not load plugin: ", plugin_name)
 
 	if plugin:
-		plugin.connect("on_main_activity_result", self, "_on_main_activity_result")
-		plugin.connect("error", self, "_on_error")
+		plugin.connect("on_main_activity_result", Callable(self, "_on_main_activity_result"))
+		plugin.connect("error", Callable(self, "_on_error"))
 
 func _on_main_activity_result(result):
 	print("RESULT:", result)
